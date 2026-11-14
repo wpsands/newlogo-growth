@@ -1,0 +1,4 @@
+private/
+outputs/
+*.plugin
+.DS_Store

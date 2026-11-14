@@ -1,0 +1,11 @@
+{
+  "name": "newlogo-growth",
+  "owner": { "name": "Page Sands" },
+  "plugins": [
+    {
+      "name": "newlogo-growth",
+      "source": "./",
+      "description": "Pipeline growth agent for B2B SaaS: audits ICP, audiences, messaging, offers, motion and measurement, then ranks pipeline experiments."
+    }
+  ]
+}
