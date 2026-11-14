@@ -8,7 +8,7 @@ It works top-down. ICP, audiences, messaging and offers come first; channels are
 
 | Skill | Ask it | You get |
 |---|---|---|
-| `pipeline-audit` | "Audit acme.com" or "One-page teardown of acme.com" | Layer scores, cited findings, 3 to 5 priorities, draft experiments. Full report or a one-page teardown. |
+| `pipeline-audit` | "Audit outreach.io" or "One-page teardown of outreach.io" | Layer scores, cited findings, 3 to 5 priorities, draft experiments. Full report or a one-page teardown. |
 | `pipeline-experiments` | "What should Acme run next quarter?" | A ranked backlog of 3 to 5 pipeline experiments and a 90-day calendar. |
 
 Both follow the method in [`method/`](method/):
