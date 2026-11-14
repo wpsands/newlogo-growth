@@ -24,7 +24,8 @@ Both follow the method in [`method/`](method/):
 In Claude Code:
 
 ```
-/plugin install newlogo-growth --marketplace wpsands/newlogo-growth
+/plugin marketplace add wpsands/newlogo-growth
+/plugin install newlogo-growth@newlogo-growth
 ```
 
 Or clone the repo and load it locally:
