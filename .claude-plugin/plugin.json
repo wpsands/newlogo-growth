@@ -1,7 +1,7 @@
 {
   "name": "newlogo-growth",
-  "version": "0.1.0",
-  "description": "A new-logo pipeline agent for B2B SaaS, from seed to enterprise. Audits ICP, audiences, messaging, offers, motion and measurement from the outside in, then ranks a short list of experiments by their effect on pipeline.",
+  "version": "0.2.0",
+  "description": "A new-logo pipeline agent for B2B SaaS, from seed to enterprise. Audits ICP, audiences, messaging, offers, motion and measurement from the outside in, then turns each priority into a multi-step play backed by verified third-party research and ranks experiments by their effect on pipeline.",
   "author": {
     "name": "Page Sands",
     "url": "https://sandsdx.com"

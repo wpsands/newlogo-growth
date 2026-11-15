@@ -12,6 +12,7 @@ Plugin files use `~~category` placeholders for whatever tool you connect in that
 | SEO tool | `~~SEO tool` | Organic keywords, paid search ads, competitor overlap | Ahrefs, Semrush, Similarweb |
 | Enrichment | `~~enrichment` | Firmographics for customers and target accounts | Clay, Apollo, ZoomInfo, Crunchbase |
 | AI visibility | `~~AI visibility` | What AI assistants say about the company for buyer questions | Ahrefs Brand Radar, Semrush AI toolkit, or direct prompts |
+| Research (optional) | `~~research` | Analyst and consultancy research behind plays | Gartner, Forrester or IDC subscriptions; otherwise public summaries via web search |
 | CRM (optional) | `~~CRM` | Win rate by segment, source definitions, stage hygiene | HubSpot, Salesforce, or a CSV export |
 | Analytics (optional) | `~~analytics` | Traffic sources, cross-domain journeys, signup to sales routing | GA4, PostHog, Amplitude, or a CSV export |
 

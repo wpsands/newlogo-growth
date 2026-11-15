@@ -21,6 +21,9 @@ These rules govern every audit and every experiment this plugin produces. When a
 - **Second pass.** Before delivering, re-check every finding against its evidence in a separate pass. Drop or downgrade anything that does not survive. An insight that does not hold up when checked twice is noise.
 - **Confirm tool metadata against the raw source.** Scrapers can report tags, redirects or text that the live page does not serve. Before using a finding that rests on page metadata (robots tags, canonical, structured data, form fields), fetch the raw page or headers and confirm it.
 - **Repeat stochastic probes.** AI-answer checks vary between runs. Run each prompt at least three times and report only what appears in the consensus.
+- **Public data first.** Assume the user has only a company URL. The audit must stand on public evidence. Supplied data (CRM, analytics, earlier audits) sharpens findings when the user provides it and is labeled `supplied`.
+- **Back plays with outside evidence.** Each play cites at least one credible, data-based third-party source for why its mechanism works (analyst, consultancy, academic or public data; vendor research labeled as such). Follow evidence.md. If none exists, say so.
+- **State tool coverage up front.** If SEO, AI-visibility or enrichment tools are unavailable, say so at the top of the output and label the affected findings `directional`.
 - **Observe only.** Do not submit forms, start trials, make purchases, create accounts or contact anyone at the target company unless the user explicitly authorizes a specific test.
 - **Human gate on anything outward-facing.** Draft outreach, posts or messages; never send them.
 

@@ -2,14 +2,16 @@
 
 A Claude Code plugin for new-logo pipeline in B2B SaaS. It audits a company's pipeline system and ranks the few experiments most likely to grow it. It covers companies from seed to enterprise.
 
-It works top-down. ICP, audiences, messaging and offers come first; channels are chosen last, as a consequence. Every finding cites its evidence, and every experiment names the pipeline number it should move, a review date and a kill rule. A/B tests and landing-page tweaks rank low unless a page is blocking a pipeline play.
+It works top-down. ICP, audiences, messaging and offers come first; channels are chosen last, as a consequence. Every finding cites its evidence. Every priority becomes a play: a segment, a trigger, two or more personas, and "if this, then that" steps that match the offer to each persona's readiness. Every play cites verified third-party research (analyst, consultancy, academic or public data) for why its mechanism works, and every experiment names the pipeline number it should move, a review date and a kill rule. A/B tests and landing-page tweaks rank low unless a page is blocking a pipeline play.
+
+It is built to run from a company URL alone. Public signals such as job posts, page source, review-site profiles and category records stand in for private data, and anything you supply is labeled as such.
 
 ## Skills
 
 | Skill | Ask it | You get |
 |---|---|---|
-| `pipeline-audit` | "Audit outreach.io" or "One-page teardown of outreach.io" | Layer scores, cited findings, 3 to 5 priorities, draft experiments. Full report or a one-page teardown. |
-| `pipeline-experiments` | "What should Acme run next quarter?" | A ranked backlog of 3 to 5 pipeline experiments and a 90-day calendar. |
+| `pipeline-audit` | "Audit outreach.io" or "One-page teardown of outreach.io" | A one-page teardown and a full report: layer scores, cited findings, 3 to 5 priorities, one play per priority with third-party evidence, draft experiments. |
+| `pipeline-experiments` | "What should Acme run next quarter?" | Plays and a ranked backlog of 3 to 5 pipeline experiments, with evidence and a 90-day calendar. |
 
 Both follow the method in [`method/`](method/):
 
@@ -17,7 +19,13 @@ Both follow the method in [`method/`](method/):
 - [`profiles.md`](method/profiles.md): stage × motion profiles
 - [`layers.md`](method/layers.md): the six layers and their checks
 - [`scoring.md`](method/scoring.md): finding and experiment formats, prioritization
+- [`plays.md`](method/plays.md): the play format, combining segments, personas, triggers and offers
+- [`evidence.md`](method/evidence.md): the third-party evidence standard and a starter library of verified sources
 - [`outputs.md`](method/outputs.md): report and teardown templates
+
+## Agents
+
+The audit runs four research agents, in parallel where the environment allows: `icp-offers-researcher`, `story-sync-researcher`, `motion-measurement-researcher` and `evidence-researcher`. They live in [`agents/`](agents/).
 
 ## Install
 

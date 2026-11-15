@@ -51,18 +51,25 @@ Audit in this order. Each layer depends on the ones above it. Score each layer 0
 
 **Outside-in checks: the story sync check**
 
-Score each surface `new` (current positioning), `mixed`, or `old` (a previous story still runs):
+First write the current positioning in one sentence, from the homepage and the most recent press release. Then score each of these ten surfaces `new` (current positioning), `mixed`, or `old` (a previous story still runs). Always use these ten, in this order, so story sync compares across companies and across reruns. A surface that cannot be checked is scored `needs data` and left out of the denominator, and the report says which.
 
-1. Homepage and top product pages (`~~web scraper`)
-2. What AI assistants say about the company for buyer questions in the category (`~~AI visibility`, or run prompts directly). Run each prompt 3+ times; report consensus only.
-3. Review sites (G2, Gartner Peer Insights, TrustRadius) category placement and review language
-4. Wikipedia, Crunchbase, LinkedIn company page
-5. Paid search ads and their landing pages (`~~SEO tool` paid research)
-6. Organic search: which queries the company ranks for, and whether they match the current story (`~~SEO tool`)
-7. Recent founder and executive posts, press releases
-8. Outbound and the sales deck, if the user can supply samples
+Company-owned (5):
+1. Homepage, including its title tag and meta description, which search results and AI answers often quote (`~~web scraper`)
+2. The main product or pricing page for the motion being audited
+3. Press releases and newsroom, last six months
+4. LinkedIn company page tagline and about text
+5. Paid search ads and their landing pages (`~~SEO tool` paid research, or the Google Ads Transparency Center)
 
-Report the **story sync rate**: the share of surfaces scored `new`. Report it three ways: overall, company-owned surfaces (site, ads, press, exec posts), and third-party surfaces (AI answers, review sites, Wikipedia, Crunchbase). The gap between owned and third-party is usually the most useful number, because third-party surfaces are where buyers form shortlists.
+Third-party (5):
+6. AI and search answers to five buyer questions in the category (`~~AI visibility`, or run prompts directly). Run each prompt 3+ times; report consensus only.
+7. Review sites: G2, Gartner Peer Insights or TrustRadius, whichever the category uses; category placement and recent review language
+8. Comparison and "alternatives" pages that rank for the company's name or category, including competitors' own comparison pages
+9. Wikipedia and Crunchbase
+10. Resellers, marketplaces or partner listings where buyers meet the product; for companies with none, analyst coverage (named reports and placements a public source states)
+
+Outbound and the sales deck, if the user supplies samples, are scored separately and not counted in the ten.
+
+Report the **story sync rate** as `x of 10`, then owned `x of 5` and third-party `x of 5`. The gap between owned and third-party is usually the most useful number, because third-party surfaces are where buyers form shortlists.
 
 AI-answer probes: prefer direct queries to the assistants buyers use (ChatGPT, Perplexity, Gemini, Claude). If only search-engine AI overviews are available, say so at the top of the output and label those findings `directional`.
 
@@ -166,13 +173,34 @@ Choose channels last. A channel is justified only by the audience it reaches and
 
 ---
 
+## Public signals that stand in for private data
+
+Most users run this plugin with a company URL and nothing else. Before marking a check `needs data`, look for a public signal that answers part of it. Name the signal and its limits in the finding.
+
+| Question | Public signal |
+|---|---|
+| Who actually buys | Case studies, review-site reviewer profiles (size, industry, role), customer logos enriched with `~~enrichment`, integration marketplace installs |
+| Which motion runs and how hard | Job posts (SDR, AE, ABM, partner, PLG growth roles and how many), territory or segment language in the posts |
+| What the measurement stack can see | Page source: tag manager, analytics, ad pixels, marketing automation, form provider, hidden form fields, intent or visitor identification scripts |
+| Where buyers meet the product | Reseller, marketplace and partner listings; who ranks for the buying queries |
+| Situational triggers | Public deadlines and regulations in the category, funding and leadership news, technology end-of-life notices |
+| Category-specific footprints | Public records that show an account's use of the category. Examples include certificate transparency logs for security and certificates, DNS and MX records for email and infrastructure, public GitHub activity for developer tools, app store listings for mobile |
+
+A public signal is `observed` for what it shows and `inferred` for what it implies about the account. Never present it as the company's internal data.
+
+## Supplied data
+
+CRM, analytics or ad exports, sales decks and earlier audits are optional. Use them only when the user provides them in this run. Label every finding that depends on them `supplied`, keep their numbers out of any public output, and make sure the report still stands on public evidence if they are removed.
+
 ## Layer scores
 
-| Score | Meaning |
-|---|---|
-| 0 | Missing or broken. Downstream work on this basis will fail. |
-| 1 | Present but weak or inconsistent. Fix before scaling anything that depends on it. |
-| 2 | Sound with specific gaps. Targeted fixes. |
-| 3 | Strong. Use as a base for experiments. |
+Score each layer against the anchors below. The score must follow from the findings in that layer, not from upstream layers. Upstream gating changes the order of priorities, not the score.
 
-Each score must cite the findings that justify it.
+| Score | Meaning | Test |
+|---|---|---|
+| 0 | Missing or broken. Downstream work on this basis will fail. | A P1 finding shows the layer does not exist or cannot work (no stated buyer at all; a form that cannot record its source; no offer short of buying). |
+| 1 | Present but contradicted. | At least one P1 finding shows the layer exists but the evidence contradicts it (stated ICP differs from who buys; owned story current but most third-party surfaces old). |
+| 2 | Sound with specific gaps. | No P1 finding in the layer; one or more P2 findings. |
+| 3 | Strong. Use as a base for plays. | Only P3 findings or none, and at least one observed strength cited. |
+
+A layer with no P1 finding cannot score below 2. If every layer scores 1, re-check the severity of each P1 before delivering. Each score cites the findings that justify it.
