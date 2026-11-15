@@ -61,7 +61,7 @@ Company-owned (5):
 5. Paid search ads and their landing pages (`~~SEO tool` paid research, or the Google Ads Transparency Center)
 
 Third-party (5):
-6. AI and search answers to five buyer questions in the category (`~~AI visibility`, or run prompts directly). Run each prompt 3+ times; report consensus only.
+6. AI and search answers to five buyer questions in the category (`~~AI visibility`, or `scripts/ai_probe.py` with API keys for Claude, ChatGPT, Perplexity or Gemini). Run each prompt 3+ times; report consensus only. Search-engine results alone are `directional`.
 7. Review sites: G2, Gartner Peer Insights or TrustRadius, whichever the category uses; category placement and recent review language
 8. Comparison and "alternatives" pages that rank for the company's name or category, including competitors' own comparison pages
 9. Wikipedia and Crunchbase
@@ -90,26 +90,36 @@ AI-answer probes: prefer direct queries to the assistants buyers use (ChatGPT, P
 
 ## 4. Offers: what each audience is asked to do
 
-> **DRAFT: method owner to confirm.** This layer is written from general practice plus the offer-ladder principle in the method owner's own work. Replace or edit with your own criteria.
-
 **Question:** At each stage of the buying journey, is there an offer worth the buyer's time and matched to their readiness?
 
 **Outside-in checks**
 - List every call to action on the site, in ads and in visible outbound. Map each to a stage: unaware, problem-aware, evaluating, ready to buy.
-- Check for an offer at each stage. A company whose only offer is "Book a demo" has nothing for the 90%+ of the ICP that is not ready to talk to sales.
+- Check for an offer at each stage. A company whose only offer is "Book a demo" has nothing for the large share of its ICP that is not in market at any one time (see E-04 in evidence.md, a heuristic, not a measured rate).
 - Judge each offer on four tests:
   1. **Value before commitment.** Does the buyer get something useful (a diagnosis, a benchmark, a working result) before they give their time?
   2. **Cost to the buyer.** How much time, data, or internal political capital does accepting it take? Lower is better at early stages.
   3. **Fit to audience.** Is it built for a specific audience from layer 2, or for everyone?
   4. **Path to pipeline.** Does accepting it create a natural reason for a sales conversation, and is that hand-off defined?
-- Pricing and packaging framing: is pricing visible or explained? Is there a clear entry point for the ICP's smallest viable deal? Do prices and terms match across surfaces?
 - For product-led and hybrid: what the free or self-serve offer gives, and what moves a high-fit user toward sales.
 
-**Strong offers usually look like**
-- A short diagnostic or assessment that tells the buyer something true about their situation (the first look is free; the full answer is paid).
-- A scoped pilot with a success criterion agreed up front.
-- A calculator or benchmark grounded in sourced data.
-- For self-serve: a frictionless first purchase, with account creation after payment, not before.
+**The strongest first offer depends on the motion**
+
+Judge the first offer, the one for a buyer who is not ready for a sales conversation, against the motion in the profile:
+
+| Motion | Strongest first offer | Then |
+|---|---|---|
+| Sales-led | A short diagnostic or assessment that tells the buyer something true about their own situation. The first look is free; the full answer is paid or comes with a conversation. | A conversation about the diagnosis, then a scoped pilot with a success criterion agreed up front |
+| Product-led | The product itself: a free plan, a trial without a card, or an interactive tour that reaches a working result fast | A defined route from high-fit users to a human, triggered by usage or account fit |
+| Hybrid | Both, routed by fit: frictionless self-serve for small buyers, a diagnostic for high-fit accounts | Self-serve buyers who match the ICP are offered the diagnostic or a human |
+| Seed or early Series A without a diagnostic yet | A benchmark or calculator grounded in sourced data, or founder-led teardowns | A founder conversation |
+
+**Gated content is weak by default.** An ebook, report or webinar behind a form counts as an offer only when it tells the buyer something about their own situation (a diagnosis, a benchmark against peers). Information alone does not pass the value-before-commitment test. A form fill never counts as pipeline.
+
+**Pricing is judged by stage**
+- Seed to Series B, and any product-led motion: no visible price or range is a P2 finding. Buyers at these stages expect to see one.
+- Mid-market and enterprise: hidden list prices are normal. Ask only for a visible entry point or a plain explanation of how pricing works (per seat, per usage, platform fee). Its absence is a P3 finding unless it blocks a play.
+- At every stage, prices or terms that differ between the site, the store, resellers and sales are a finding.
+- For self-serve purchases, account creation should come after payment, not before.
 
 **Common failures**
 - "Book a demo" as the only offer.
