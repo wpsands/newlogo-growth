@@ -69,6 +69,8 @@ Third-party (5):
 
 Outbound and the sales deck, if the user supplies samples, are scored separately and not counted in the ten.
 
+A `mixed` surface counts as zero in the rate. Report the number of mixed surfaces beside it, for example `4 of 10 (3 mixed)`.
+
 Report the **story sync rate** as `x of 10`, then owned `x of 5` and third-party `x of 5`. The gap between owned and third-party is usually the most useful number, because third-party surfaces are where buyers form shortlists.
 
 AI-answer probes: prefer direct queries to the assistants buyers use (ChatGPT, Perplexity, Gemini, Claude). If only search-engine AI overviews are available, say so at the top of the output and label those findings `directional`.
@@ -202,5 +204,9 @@ Score each layer against the anchors below. The score must follow from the findi
 | 1 | Present but contradicted. | At least one P1 finding shows the layer exists but the evidence contradicts it (stated ICP differs from who buys; owned story current but most third-party surfaces old). |
 | 2 | Sound with specific gaps. | No P1 finding in the layer; one or more P2 findings. |
 | 3 | Strong. Use as a base for plays. | Only P3 findings or none, and at least one observed strength cited. |
+
+Two cases come up often:
+- **ICP too broad to list.** A stated ICP that no one could build an account list from ("revenue teams", "companies big and small") counts as contradicted, and the finding is P1.
+- **Offers with a missing middle.** Plenty of content and tools at the top, then only "book a demo", counts as contradicted, and the finding is P1.
 
 A layer with no P1 finding cannot score below 2. If every layer scores 1, re-check the severity of each P1 before delivering. Each score cites the findings that justify it.

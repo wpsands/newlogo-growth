@@ -1,14 +1,16 @@
 # Output formats
 
-Two formats. The one-page teardown leads; the full report is the appendix that backs it. Deliver the teardown by default for hiring-manager, founder or public use, and both when the user asks for an audit for their own company or a client.
+Two formats. The one-page teardown leads; the full report is the appendix that backs it. Deliver both by default. Deliver the teardown alone when the user asks for a one-pager.
 
-Every output opens with a coverage line: which tools were available, which were not, and which findings are therefore `directional`.
+Every output opens with a coverage line: which tools worked, which failed (with the error), which worked only partly or through a substitute, and which findings are therefore `directional`.
+
+When the output will be public, both documents are public. Leave out anything from supplied data, and keep page-source details to what any visitor could see.
 
 ---
 
 ## A. One-page pipeline teardown
 
-For a hiring manager, a founder, or a public post. Must fit on one page (about 500 words plus one small table and one short play). Written to be read in two minutes.
+For a hiring manager, a founder, or a public post. Must fit on one page (about 650 words including the coverage line, one small table and one short play). Written to be read in two minutes.
 
 ```
 # {Company}: where pipeline is leaking

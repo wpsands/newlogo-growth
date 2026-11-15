@@ -24,6 +24,10 @@ Each step branches on the buyer's response. Each branch names what happens next,
 - **Measurable.** Each play names one pipeline metric, a review date and a kill rule, so it can become an experiment.
 - **Observe-only still applies.** Plays describe what the company would do. Drafted messages are for review; the plugin never sends them.
 
+## Internal fixes
+
+Some priorities are repairs inside the company, such as a measurement or routing fix, with no buyer to reach. Write these as a fix, not a play: the owner, the steps in order, the done criterion, the date, and what it unblocks. A fix needs no personas, trigger or evidence citation, and it runs as a week-0 prerequisite for the plays that depend on it.
+
 ## Play format
 
 ```

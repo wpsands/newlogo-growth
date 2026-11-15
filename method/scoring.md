@@ -36,7 +36,7 @@ Each experiment tests a strategic hypothesis and has a pipeline outcome.
 | **Finding(s) addressed** | IDs |
 | **Pipeline metric** | One primary metric: accounts reached, first meetings, opportunities created, win rate, cycle length, deal size |
 | **Leading indicator** | What should move within 2 to 3 weeks to show the experiment is on track |
-| **Expected lift** | Low / mid / high, each with its reasoning. Plan on the low case. |
+| **Expected lift** | Low / mid / high, each with its reasoning. Plan on the low case. Without a baseline, write qualitative bands (for example, "equal to the holdout with less effort") and say the baseline is unknown. |
 | **Supporting evidence** | Third-party, data-based citation for the mechanism, per evidence.md, with its type label. "No third-party evidence found" when none exists. Never used as the expected lift. |
 | **Window** | Usually 6 to 12 weeks. Shorter only if the pipeline metric can move that fast. |
 | **Owner** | The role that runs it |

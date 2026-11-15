@@ -1,12 +1,14 @@
 {
   "name": "newlogo-growth",
   "description": "New Logo Growth, a pipeline audit and plays plugin for B2B SaaS.",
-  "owner": { "name": "Page Sands" },
+  "owner": {
+    "name": "Page Sands"
+  },
   "plugins": [
     {
       "name": "newlogo-growth",
       "source": "./",
-      "description": "Pipeline growth agent for B2B SaaS: audits ICP, audiences, messaging, offers, motion and measurement, then ranks pipeline experiments."
+      "description": "Pipeline audit for B2B SaaS from public data: scores ICP, audiences, messaging, offers, motion and measurement, then turns each priority into a multi-step play backed by verified third-party research."
     }
   ]
 }

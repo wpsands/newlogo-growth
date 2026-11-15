@@ -21,6 +21,8 @@ Do not use: undated statistics, figures with no reachable source, listicles that
 - **Fit the claim.** The citation must support the mechanism the play depends on, for the right kind of buyer (B2B, the right size, the right region where it matters). A consumer statistic does not support a B2B play.
 - **Mechanism, not promise.** Use research to explain why a step should work. Never convert a benchmark into the company's expected lift. Expected lift stays low, mid and high reasoning from the company's own baseline, or "unknown".
 - **When nothing credible exists, say so.** Write "no third-party evidence found" and keep the play if the company's own evidence supports it.
+- **No competitor's research about its own category.** Do not cite research published by a direct competitor of the company being audited, even with a vendor label. For example, do not cite Gong data in an audit of Outreach.
+- **Recency.** Prefer research from the last three years. Older entries are flagged in their notes; use them only when no newer source covers the mechanism. The verify pass re-opens every citation regardless of age.
 - **Date everything.** Each citation carries the publication year and the date it was checked. Prefer research from the last three years; older canonical studies are allowed with the year shown.
 
 ## Citation format
@@ -96,7 +98,7 @@ Sample and method notes:
 Sample and method notes:
 - E-10, E-11: 632 B2B buyers, August to September 2024. Also: 74% of buyer teams show "unhealthy conflict."
 - E-12: Same release: "86% of B2B purchases stall during the buying process." Release date 4 Dec 2024. Sample not stated in the release.
-- E-13: Gong platform data, 1.8 million new-business opportunities closed in 2024. Same page: "multi-threading boosts win rates by an average of 130% in deals over $50K." Correlational; healthier deals may attract more contacts.
+- E-13: Do not cite in an audit of Gong or of a direct Gong competitor (Outreach, Salesloft, Clari). Gong platform data, 1.8 million new-business opportunities closed in 2024. Same page: "multi-threading boosts win rates by an average of 130% in deals over $50K." Correlational; healthier deals may attract more contacts.
 
 ---
 
