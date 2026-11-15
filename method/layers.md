@@ -181,7 +181,7 @@ Most users run this plugin with a company URL and nothing else. Before marking a
 
 | Question | Public signal |
 |---|---|
-| Who actually buys | Case studies, review-site reviewer profiles (size, industry, role), customer logos enriched with `~~enrichment`, integration marketplace installs |
+| Who actually buys | Case studies, review-site reviewer profiles (size, industry, role), customer logos enriched with `~~enrichment` or, without it, the employee ranges shown on LinkedIn company pages and Crunchbase, integration marketplace installs |
 | Which motion runs and how hard | Job posts (SDR, AE, ABM, partner, PLG growth roles and how many), territory or segment language in the posts |
 | What the measurement stack can see | Page source: tag manager, analytics, ad pixels, marketing automation, form provider, hidden form fields, intent or visitor identification scripts |
 | Where buyers meet the product | Reseller, marketplace and partner listings; who ranks for the buying queries |

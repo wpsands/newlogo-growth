@@ -59,13 +59,13 @@ Score each layer with the anchors in layers.md, citing finding IDs. Score each l
 Group by root cause, score impact and effort, sequence by dependency, keep 3 to 5, park the rest. If measurement scores 0 or 1, the measurement fix is priority 1.
 
 ### 6. Design plays
-Turn each priority into one play in the plays.md format: a list-able segment, a trigger, at least two personas (the one who feels the problem and the one who signs), and "if this, then that" steps that match the offer to each persona's readiness, with an owner and a pipeline stage on every branch.
+Turn each of the top three priorities into a full play in the plays.md format (priorities four and five get one line each; internal fixes use the fix format): a list-able segment, a trigger, at least two personas (the one who feels the problem and the one who signs), and "if this, then that" steps that match the offer to each persona's readiness, with an owner and a pipeline stage on every branch.
 
 ### 7. Back plays with evidence
 Run `evidence-researcher` on the drafted plays, or follow evidence.md directly. Each play gets at least one verified, data-based third-party citation for its mechanism, with its type label, or "no third-party evidence found". Never turn a benchmark into the company's expected lift.
 
-### 8. Draft experiments
-For each play, draft one experiment in the scoring.md format. For a fuller backlog, hand off to `pipeline-experiments`.
+### 8. Add the test
+Give each full play its test block (plays.md). In the audit, the test block is the experiment; there is no separate experiments section. For a fuller backlog with complete experiment tables and a 90-day calendar, hand off to `pipeline-experiments`.
 
 ### 9. Verify
 Second pass over every finding, play and citation:

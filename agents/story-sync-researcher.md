@@ -32,6 +32,7 @@ You receive a company, its URL, the motion in scope and a notes file path.
 
 - Observe only. Every observation carries a URL or query and the date. Label `observed` or `inferred`. Never invent numbers.
 - AI and search answers vary. Run each buyer question at least three times and report only the consensus. If you can query assistants directly (ChatGPT, Perplexity, Gemini, Claude), say so; if you only have search-engine results, label those findings `directional`.
+- Never answer a buyer question from your own training knowledge as a stand-in for an assistant. If no assistant or search tool can be queried, score surface 6 `needs data`.
 - Read the homepage title tag and meta description from raw HTML.
 
 ## Collect

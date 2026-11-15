@@ -47,9 +47,13 @@ Exit. {Meeting booked, opportunity created, or disqualified because ...}
 Stops when. {Contact limit, time limit, or signal that ends the play}
 
 Why it should work: {one or two sentences on the mechanism} [{evidence ID or citation}]
+Hypothesis: If {segment} gets {offer}, then {metric} moves within {window}, because {finding}.
 Metric: {one pipeline metric} · Leading indicator: {what moves in 2 to 3 weeks}
-Review: week {n} · Kill rule: {result that stops it} · Scale rule: {result that earns more investment}
+Expected lift: low {..} / mid {..} / high {..}, or qualitative bands if no baseline · Prerequisites: {fixes or data needed first}
+Owner: {role} · Review: week {n} · Kill rule: {result that stops it} · Scale rule: {result that earns more investment}
 ```
+
+Keep a full play to about 350 words including the test block. Two or three steps are usually enough; add a step only when the buyer's readiness changes.
 
 ## Example
 
@@ -80,5 +84,7 @@ Review: week 10 · Kill rule: no difference from a matched holdout at week 8 · 
 ```
 
 ## From play to experiment
+
+In an audit, the play's test block is the experiment; do not repeat it as a separate table.
 
 The experiment format in scoring.md tests a play. Copy the segment, the first offer and the metric into the hypothesis. Use the play's review date and kill rule. Run at most two plays on the same persona at the same time, or their effects cannot be separated.

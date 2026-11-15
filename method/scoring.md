@@ -21,7 +21,7 @@ Every finding uses this structure:
 2. Score each root cause on **impact** (expected pipeline effect, 1 to 5) and **effort** (S, M, L, considering people, budget and dependencies).
 3. Sequence by dependency before sorting by score. ICP before audience work, messaging before new channels, clean definitions before attribution claims.
 4. Keep the top 3 to 5. Everything else goes in a parking lot with one line each.
-5. Turn each kept priority into one play (plays.md): segment, personas, trigger, offer and "if this, then that" branches, backed by third-party evidence for its mechanism (evidence.md).
+5. Turn the top three priorities into full plays (plays.md): segment, personas, trigger, offer and "if this, then that" branches, backed by third-party evidence for the mechanism (evidence.md). Give priorities four and five one line each: segment, first offer, metric, and the evidence ID if one applies.
 
 ## Experiment format
 

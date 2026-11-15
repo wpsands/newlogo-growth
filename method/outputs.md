@@ -53,6 +53,8 @@ Rules for the teardown:
 
 For client work and internal planning. Markdown; the user may ask for HTML or PDF.
 
+Aim for 3,500 to 4,000 words of prose; table syntax and URLs do not count. Rough budget: coverage, summary, profile and scores 600; priorities 250; plays 1,100 (three full plays at about 350 words, plus one-liners); findings 1,250; parking lot, gaps and verify pass 350; sources as long as they need to be. If the report runs long, cut repetition between plays and findings first, then secondary branches in plays. Never cut a fact a finding or play depends on.
+
 ```
 # Pipeline audit: {Company}
 {date} · {outside-in | outside-in + supplied data: list} · prepared with newlogo-growth
@@ -83,21 +85,23 @@ For each of the 3 to 5 priorities:
 - Depends on: {other priority, or none}
 
 ## Plays
-One play per priority, in the play format from plays.md, each with its third-party evidence.
-
-## Experiments
-One table per experiment, using the experiment format in scoring.md. Each names the play it tests.
+Full plays, in the plays.md format with the test block, for the top three priorities. Each carries its third-party evidence. Priorities four and five, if any, get one line each: segment, first offer, metric. Internal fixes use the fix format from plays.md.
 
 ## Findings
-All findings in the finding format, grouped by layer. The story sync table sits under Messaging.
+P1 and P2 findings in the finding format, grouped by layer. Keep the finding to one sentence and the evidence to source and date. P3 findings go in a short list at the end of the section, one line each. Observed strengths are cited in the layer scores table, not listed as findings. The story sync table sits under Messaging.
 
 ## Parking lot
 One line per deferred item.
 
+Week 0: internal fixes that plays depend on but that are not priorities, one line each with owner and done criterion.
+
 ## What we could not see
-Each `needs data` item and the export or access that would resolve it.
+Each `needs data` item and the export or access that would resolve it. `needs data` findings live here, not in the findings tables.
+
+## Verify pass
+Outcomes only: what was dropped, downgraded or corrected, and what was re-confirmed against raw sources.
 
 ## Sources
 Company sources: every URL and query used, with dates.
-Third-party evidence: every citation used in plays and priorities, with its type label (analyst, consultancy, academic, public data, vendor-own, vendor-commissioned) and the date it was checked.
+Third-party evidence: every citation used in plays and priorities, with its type label, year and URL (the quote appears where the citation is used) (analyst, consultancy, academic, public data, vendor-own, vendor-commissioned) and the date it was checked.
 ```
