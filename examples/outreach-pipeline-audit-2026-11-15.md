@@ -2,7 +2,7 @@
 
 2026-11-15 · outside-in, public data only · prepared with newlogo-growth v0.2.0 · by Page Sands
 
-Coverage: Firecrawl scrape and search, raw page fetches, the public GTM container and Marketo form definitions, the Lever postings API, and the Google Ads Transparency Center (through a Firecrawl data provider, ad text read by OCR). Semrush failed ("API UNITS BALANCE IS ZERO") and Ahrefs failed ("Insufficient plan"), so there is no keyword, ranking or paid-spend data; search positions come from single web-search runs and are `directional`. No AI assistant (ChatGPT, Perplexity, Gemini, Claude) was queried directly; story sync surface 6 rests on search-engine results only and is `directional`. No enrichment was run, so customer sizes and regions are `inferred` from general knowledge. The LinkedIn company page was read through a data-provider mirror dated 2026-11-12, not the live page.
+Coverage: Firecrawl scrape and search, raw page fetches, the public GTM container and Marketo form definitions, the Lever postings API, and the Google Ads Transparency Center (through a Firecrawl data provider, ad text read by OCR). Semrush failed ("API UNITS BALANCE IS ZERO") and Ahrefs failed ("Insufficient plan"), so there is no keyword, ranking or paid-spend data; search positions come from single web-search runs and are `directional`. AI answers come from Claude, ChatGPT, Gemini and Perplexity queried directly through OpenRouter with each provider's own web search, five buyer questions, three runs each, on 2026-11-17. An earlier search-engine read of surface 6 was replaced by that probe. No enrichment was run, so customer sizes and regions are `inferred` from general knowledge. The LinkedIn company page was read through a data-provider mirror dated 2026-11-12, not the live page.
 
 This is a public example. It uses public sources only and has not been reviewed by Outreach. It contains no internal performance data.
 
@@ -161,7 +161,7 @@ Current positioning: agentic AI platform for revenue teams ("Stop buying softwar
 | 3 | Press releases, last six months | new | May to October 2026: all agentic framing |
 | 4 | LinkedIn company page | new | "Only Complete Agentic AI Platform" (mirror, 2026-11-12); domain still outreach.io |
 | 5 | Paid search ads and landing pages | mixed | 12 recent ads: 2 current, 2 previous, 8 older or generic; landing title "AI Sales Engagement Platform" |
-| 6 | AI and search answers (directional) | old | Search results say sales engagement or execution |
+| 6 | AI answers (Claude, ChatGPT, Gemini, Perplexity; 3 runs each, 2026-11-17) | mixed | All four name Outreach for "best AI platform for B2B revenue teams"; head-to-head and value answers still describe sales engagement or sequencing; outreach.ai is seldom the cited source |
 | 7 | Review sites | mixed | G2 current; Gartner Peer Insights (4.4, 198 ratings) says "Sales Execution Platform" (re-opened) |
 | 8 | Comparison and alternatives pages | mixed | 2 of about 10 current (apollo.io, salescloser.ai); Salesloft's page titled "(2025)" |
 | 9 | Wikipedia and Crunchbase | old | No Wikipedia article; Crunchbase "sales engagement platform", www.outreach.io (re-opened) |
@@ -172,7 +172,7 @@ Story sync: 4 of 10. Owned 4 of 5. Third-party 0 of 5. No surface scored `needs 
 | ID | Finding | Evidence | Status | Severity | Pipeline effect | Root cause |
 |---|---|---|---|---|---|---|
 | L3-1 | The current story runs on 4 of 5 owned and 0 of 5 third-party surfaces; Crunchbase, AWS Marketplace and Gartner Peer Insights still say sales engagement or execution. | Story sync 7, 9, 10 (re-opened) | observed | P1 | first meetings (shortlist inclusion) | Repositioning skipped third-party profiles |
-| L3-2 | Search results for five buyer questions put Outreach in sales-engagement lists and leave it out of "best agentic AI platform for revenue teams" lists. | Firecrawl web search, US, 1 to 3 phrasings each | inferred, directional | P2 | first meetings | L3-1 |
+| L3-2 | Asked directly, all four assistants name Outreach among the best AI platforms for revenue teams, but head-to-head and value answers describe it as sales engagement or sequencing, and outreach.ai is the cited source in few runs (mostly ChatGPT and Perplexity on the comparison question). | ai_probe.py through OpenRouter, native web search, 5 questions x 3 runs x 4 assistants, 2026-11-17 | observed | P2 | first meetings | L3-1 |
 | L3-3 | The demo page title says "AI Sales Engagement Platform", its meta description claims 30%, 19% and 26% gains against homepage tiles of 90%, 45% and 50%, and sampled ads give two customer counts ("5k+" and "6000+"). | raw request-demo and home; ads a04, a06, a12 (OCR) | observed | P2 | first meetings | L3-1 |
 | L3-4 | Salesloft, Gong, Apollo and Revenue.io homepages claim one platform, agents, signals and MCP support, while Outreach's sharpest differentiator (Salesloft and Clari still merging two products) sits only on its comparison page. | Competitor homepages; /salesloft-vs-outreach | observed | P2 | win rate | L1-4 |
 
@@ -240,11 +240,13 @@ Story sync: 4 of 10. Owned 4 of 5. Third-party 0 of 5. No surface scored `needs 
 - Held (2026-11-15): five re-opened pages (Crunchbase, AWS Marketplace, Gartner Peer Insights, G2, /salesloft-vs-outreach) and every raw-file check, including the 12 ads (OCR re-run).
 - Corrected: 2 home-page links to outreach.io/request-demo, not 3; 14 hidden demo-form fields, not 13; "only AI-powered Sales Execution Platform" is AWS seller-profile wording, not re-opened.
 - Not a finding: scraper noindex on /salesloft-vs-outreach (from the Wistia player).
-- Downgraded: L1-3 `inferred`; L3-2 and L5-1 `directional`; L4-4 routing `needs data`.
+- Downgraded: L1-3 `inferred`; L5-1 `directional`; L3-2 corrected on 2026-11-17 after a direct AI probe replaced the search-engine read; L4-4 routing `needs data`.
 - Recomputed: G2 sizes 702, 2,163 and 797 of 3,662 (19%, 59%, 22%); industries 1,990 of 3,639 (55%); Executive Sponsor 98 of 3,544 (2.8%); story sync 4 of 10.
 - Dropped: Gong's multi-threading data (E-13); Gong is a direct competitor.
 
 ## Sources
+
+AI answer probe: scripts/ai_probe.py, Claude Sonnet 5.5, GPT-5.6 Terra, Gemini 3.8 Flash and Perplexity Sonar through OpenRouter with native web search, 2026-11-17.
 
 Company sources (observed 2026-11-15 unless noted):
 - https://www.outreach.ai (home), /pricing, /enterprise, /request-demo, /demo-confirmed, /platform, /ai-agents, /platform/trust, /company/about, /company/contact, /company/newsroom, /resources/stories, /resources/tools and its calculators and quizzes, /resources/reports-guides/ai-consolidation-playbook, /resources/webinars-videos, /partners, /salesloft-vs-outreach, /speak-with-maia

@@ -17,6 +17,12 @@ key is skipped and listed in the output. Model names can be overridden.
   PERPLEXITY_API_KEY  NLG_PERPLEXITY_MODEL (default sonar)
   GEMINI_API_KEY      NLG_GEMINI_MODEL     (default gemini-2.5-flash)
 
+Or one OPENROUTER_API_KEY for all four families, each with its provider's native
+search. Defaults: openai/gpt-5.6-terra, anthropic/claude-sonnet-5.5,
+google/gemini-3.8-flash, perplexity/sonar; override with
+NLG_OPENROUTER_{OPENAI,ANTHROPIC,GEMINI,PERPLEXITY}_MODEL. A direct key for a
+family takes precedence over its OpenRouter route.
+
 Example:
   python3 ai_probe.py --brand Outreach --aliases outreach.ai,outreach.io \
     --competitors Gong,Salesloft,Apollo --questions-file questions.txt \
@@ -123,9 +129,52 @@ def ask_gemini(q, key, model):
     cand = (data.get("candidates") or [{}])[0]
     text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", []))
     chunks = cand.get("groundingMetadata", {}).get("groundingChunks", []) or []
-    urls = [c.get("web", {}).get("uri") for c in chunks if c.get("web", {}).get("uri")]
+    urls = []
+    for c in chunks:
+        w = c.get("web", {})
+        u, title = w.get("uri"), (w.get("title") or "").strip()
+        if u and "vertexaisearch" in u and re.match(r"^[\w.-]+\.[a-z]{2,}$", title):
+            u = "https://" + title
+        if u:
+            urls.append(u)
     return text, urls, None
 
+
+def make_openrouter(family):
+    def ask(q, key, model):
+        headers = {"authorization": f"Bearer {key}", "content-type": "application/json",
+                   "x-title": "newlogo-growth ai_probe"}
+        body = {"model": model, "messages": [{"role": "user", "content": q}]}
+        if family != "perplexity":  # Sonar always searches; it rejects the web plugin
+            body["plugins"] = [{"id": "web", "engine": "native"}]
+        data, err = post("https://openrouter.ai/api/v1/chat/completions", headers, body)
+        if err:
+            return "", [], err
+        if data.get("error"):
+            return "", [], str(data["error"])[:300]
+        msg = (data.get("choices") or [{}])[0].get("message", {})
+        urls = []
+        for a in msg.get("annotations") or []:
+            c = a.get("url_citation", {})
+            u, title = c.get("url"), (c.get("title") or "").strip()
+            # Gemini cites Google redirect links; the title carries the real site
+            if u and "vertexaisearch" in u and re.match(r"^[\w.-]+\.[a-z]{2,}$", title):
+                u = "https://" + title
+            if u:
+                urls.append(u)
+        urls += list(data.get("citations") or [])
+        return msg.get("content") or "", urls, None
+    return ask
+
+
+# OpenRouter routes one key to every family, with each provider's native search.
+# A direct key for a family takes precedence over its OpenRouter route.
+OPENROUTER_MODELS = {
+    "openai": "openai/gpt-5.6-terra",
+    "anthropic": "anthropic/claude-sonnet-5.5",
+    "gemini": "google/gemini-3.8-flash",
+    "perplexity": "perplexity/sonar",
+}
 
 PROVIDERS = {
     "anthropic": ("ANTHROPIC_API_KEY", "NLG_ANTHROPIC_MODEL", "claude-opus-5-5", ask_anthropic),
@@ -193,17 +242,24 @@ def main():
               "started": datetime.now(timezone.utc).isoformat(timespec="seconds"),
               "providers": {}, "skipped": {}}
 
+    plan = []  # (label, fn, key, model, route)
+    or_key = os.environ.get("OPENROUTER_API_KEY")
     for name in [p.strip() for p in a.providers.split(",") if p.strip()]:
         if name not in PROVIDERS:
             result["skipped"][name] = "unknown provider"
             continue
         key_var, model_var, default_model, fn = PROVIDERS[name]
         key = os.environ.get(key_var) or (os.environ.get("GOOGLE_API_KEY") if name == "gemini" else None)
-        if not key:
-            result["skipped"][name] = f"{key_var} not set"
-            continue
-        model = os.environ.get(model_var, default_model)
-        prov = {"model": model, "questions": []}
+        if key:
+            plan.append((name, fn, key, os.environ.get(model_var, default_model), "direct"))
+        elif or_key:
+            model = os.environ.get(f"NLG_OPENROUTER_{name.upper()}_MODEL", OPENROUTER_MODELS[name])
+            plan.append((name, make_openrouter(name), or_key, model, "openrouter, native search"))
+        else:
+            result["skipped"][name] = f"{key_var} and OPENROUTER_API_KEY not set"
+
+    for name, fn, key, model, route in plan:
+        prov = {"model": model, "route": route, "questions": []}
         for q in questions:
             runs = []
             for r in range(a.runs):
@@ -230,7 +286,7 @@ def main():
     if result["skipped"]:
         print("Skipped: " + "; ".join(f"{k} ({v})" for k, v in result["skipped"].items()) + "\n")
     for name, prov in result["providers"].items():
-        print(f"## {name} ({prov['model']})\n")
+        print(f"## {name} ({prov['model']}, {prov['route']})\n")
         print("| Question | Present | Runs named | Valid runs |")
         print("|---|---|---|---|")
         for qq in prov["questions"]:

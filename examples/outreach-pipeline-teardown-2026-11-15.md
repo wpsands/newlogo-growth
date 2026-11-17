@@ -2,7 +2,7 @@
 
 2026-11-15 · outside-in, public data only · by Page Sands
 
-Coverage: public pages, page source, ad library and job posts. Semrush failed ("API UNITS BALANCE IS ZERO") and Ahrefs failed ("Insufficient plan"), so search positions are directional. No AI assistant was queried directly; AI-answer findings rest on search-engine results and are directional. No enrichment was run, so customer sizes are inferred. LinkedIn was read through a data-provider mirror dated 2026-11-12.
+Coverage: public pages, page source, ad library and job posts. Semrush failed ("API UNITS BALANCE IS ZERO") and Ahrefs failed ("Insufficient plan"), so search positions are directional. AI answers come from Claude, ChatGPT, Gemini and Perplexity queried directly through OpenRouter with each provider's own web search, five buyer questions, three runs each, on 2026-11-17. No enrichment was run, so customer sizes are inferred. LinkedIn was read through a data-provider mirror dated 2026-11-12.
 
 **The constraint.** The ICP. Outreach describes its buyer as "revenue teams", and no public surface names a segment or trigger narrow enough to build an account list. The clearest switching moment in the category, the Salesloft and Clari merger, reaches buyers only as a comparison page that ends in a 12-field demo form.
 
