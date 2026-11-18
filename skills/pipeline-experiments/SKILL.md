@@ -20,7 +20,7 @@ Turn findings into 3 to 5 experiments that each test a strategic hypothesis and 
 
 Use whichever exist, in this order of preference:
 1. A pipeline audit from this conversation or a file produced by `pipeline-audit`.
-2. Findings, goals or a CRM or analytics export the user supplies.
+2. Findings, goals or a CRM or analytics export the user supplies. Run the checks in layers.md ("Reading CRM exports") before using any rate from an export as a baseline.
 3. A company URL alone: run a reduced profile and story-sync check first, or offer to run `pipeline-audit`.
 
 Also ask, if not known: the pipeline goal for the period, the team available to run experiments (roles, not names), and any constraint (budget, no outbound, regulated industry).

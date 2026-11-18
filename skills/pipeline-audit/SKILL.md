@@ -50,7 +50,7 @@ Run the three researchers in parallel when the environment supports subagents, e
 Without subagents, work the same checks in layer order. Either way, record raw observations with source and date before interpreting them, and look for a public signal (layers.md) before marking anything `needs data`.
 
 ### 3. Write findings
-Convert observations into findings using the format in scoring.md. Label each `observed`, `inferred`, `needs data` or `supplied`. Identify root causes.
+Convert observations into findings using the format in scoring.md. Label each `observed`, `inferred`, `needs data` or `supplied`. Identify root causes. If CRM exports are supplied, run the checks in layers.md ("Reading CRM exports") before computing any rate, and state the analysis window and team scope on every `supplied` finding.
 
 ### 4. Score layers
 Score each layer with the anchors in layers.md, citing finding IDs. Score each layer on its own findings. Upstream gating sets the order of priorities, not the scores.
@@ -73,6 +73,7 @@ Second pass over every finding, play and citation:
 - Recheck metadata findings (tags, form settings, link targets) against the raw file.
 - Re-open each third-party citation and confirm the quote and year.
 - Recompute every total and percentage.
+- For `supplied` CRM findings, confirm that every rate uses the stated window and team scope, that no comparison mixes exports whose totals differ, and that each claimed field or record problem survives the report's own filters.
 - Check that no number is invented, and that the report still stands if `supplied` findings are removed.
 
 ### 10. Deliver

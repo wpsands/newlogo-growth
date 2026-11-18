@@ -204,6 +204,19 @@ A public signal is `observed` for what it shows and `inferred` for what it impli
 
 CRM, analytics or ad exports, sales decks and earlier audits are optional. Use them only when the user provides them in this run. Label every finding that depends on them `supplied`, keep their numbers out of any public output, and make sure the report still stands on public evidence if they are removed.
 
+### Reading CRM exports
+
+Run these checks before computing any rate from a CRM export, and record the result of each in the run's notes. A rate that skips them is not ready for a finding.
+
+1. **Check the exports against each other.** Count records, join on the opportunity ID, and compare totals (won count, won value) across exports. Exports usually carry different filters. Never combine figures from two exports in one comparison unless their totals reconcile, or state the difference next to the comparison.
+2. **Read each report's filters before calling a field or record set a problem.** Before saying records should leave a denominator, check whether the report already excludes them. Before saying two fields disagree, test whether a third field explains the difference (for example, a source bucket that changes when a BDR-transfer flag is set). Report only the residue the rule does not explain.
+3. **Find definition breaks, then use one window.** Tabulate closed outcomes (won, lost, cancelled or no-decision) by quarter. If the share of any outcome jumps or collapses, the definition or the practice changed. Pick the longest run of quarters on one definition, compute every win rate, segment cut, source cut and correlation inside that window only, and state the window in the finding. Blended rates across a break favor segments with more history on the looser definition. Name the break as a measurement finding, but do not let it block analysis when a clean window exists.
+4. **Split by team or motion before any ICP claim.** Exports named for one motion often include others (SMB, public sector, renewals or channel owner roles inside an "enterprise" report). Cut win rate, deal size and volume by owner team or role first. State which teams the ICP and play findings cover, and exclude teams outside the audit's scope.
+5. **Test confounds in contact-role and partner analysis.** Partner, internal and placeholder roles (partner account manager, contact primary) inflate role counts on partner deals. Count buyer roles only, and repeat the role comparison within partner-involved and non-partner deals. Report a correlation as a correlation.
+6. **Look at the trend before the rates.** Report won count and won value by quarter. A large change in volume needs an explanation (headcount, scope or territory change, or real lift) before any play claims a lift.
+7. **Read the loss mix inside the window.** Separate disqualifications and duplicates from real losses, and report the share of no-decision losses (unresponsive, delayed, deprioritized) next to pricing, feature and competitor losses.
+8. **Check stage claims against the window too.** Clean-ups and mass cancellations distort exit-stage counts. Compute which stage deals leave from using real losses inside the window, not all closes.
+
 ## Layer scores
 
 Score each layer against the anchors below. The score must follow from the findings in that layer, not from upstream layers. Upstream gating changes the order of priorities, not the score.
