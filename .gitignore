@@ -2,3 +2,5 @@ private/
 outputs/
 *.plugin
 .DS_Store
+__pycache__/
+*.pyc
