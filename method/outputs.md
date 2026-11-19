@@ -53,15 +53,16 @@ Rules for the teardown:
 
 For client work and internal planning. Markdown; the user may ask for HTML or PDF.
 
-Aim for 3,500 to 4,000 words of prose; table syntax and URLs do not count. Rough budget: coverage, summary, profile and scores 600; priorities 250; plays 1,100 (three full plays at about 350 words, plus one-liners); findings 1,250; parking lot, gaps and verify pass 350; sources as long as they need to be. If the report runs long, cut repetition between plays and findings first, then secondary branches in plays. Never cut a fact a finding or play depends on.
+Aim for 3,500 to 4,000 words of prose; table syntax and URLs do not count. Rough budget: coverage, summary, profile and scores 600; priorities 250; plays 1,250 (three full plays at about 400 words, plus one-liners); findings 1,250; parking lot, gaps and verify pass 350; sources as long as they need to be. If the report runs long, cut repetition between plays and findings first, then secondary branches in plays. Never cut a fact a finding or play depends on.
 
 ```
 # Pipeline audit: {Company}
 {date} · {outside-in | outside-in + supplied data: list} · prepared with newlogo-growth
 Coverage: {tools used; tools unavailable; findings labeled directional as a result}
+Supplied data (only when data was supplied): {each file, its row count and date range; the population filter; the analysis window and why; the teams in scope; whether the files reconcile}
 
 ## Summary
-3 to 5 sentences. The single biggest constraint on pipeline, in plain words. The top 3 priorities in one line each.
+3 to 5 sentences. The single biggest constraint on pipeline, in plain words, with the evidence that makes it the constraint here and one clause on what evidence would have pointed elsewhere. What changed in the last 12 months, if anything did. The top 3 priorities in one line each.
 
 ## Profile
 Stage: {stage} ({evidence}) · Motion: {motion} ({evidence})
@@ -80,12 +81,15 @@ Stated ICP vs observed ICP, one line each.
 For each of the 3 to 5 priorities:
 ### {n}. {Root cause, stated plainly}
 - Findings: {IDs}
-- Pipeline effect: {metric} · Impact {1–5} · Effort {S/M/L}
+- Pipeline effect: {metric} · Size: {accounts, deals or value touched, with counts, or "not sized"} · Impact {1–5} · Effort {S/M/L}
 - Play: {play name, below}
 - Depends on: {other priority, or none}
 
 ## Plays
-Full plays, in the plays.md format with the test block, for the top three priorities. Each carries its third-party evidence. Priorities four and five, if any, get one line each: segment, first offer, metric. Internal fixes use the fix format from plays.md.
+Full plays, in the plays.md format with the test block, including the shape, baseline, volume and capacity lines, for the top three priorities. Each carries its third-party evidence. Priorities four and five, if any, get one line each: segment, first offer, metric. Internal fixes use the fix format from plays.md.
+
+## Play assets
+For the first play (others on request), per plays.md: the list filter and expected count, a first-touch draft under 90 words, the outline of the offer, and a worked sample for up to three accounts when it can be built from public data. Drafts for review only.
 
 ## Findings
 P1 and P2 findings in the finding format, grouped by layer. Keep the finding to one sentence and the evidence to source and date. P3 findings go in a short list at the end of the section, one line each. Observed strengths are cited in the layer scores table, not listed as findings. The story sync table sits under Messaging.
@@ -99,7 +103,7 @@ Week 0: internal fixes that plays depend on but that are not priorities, one lin
 Each `needs data` item and the export or access that would resolve it. `needs data` findings live here, not in the findings tables.
 
 ## Verify pass
-Outcomes only: what was dropped, downgraded or corrected, and what was re-confirmed against raw sources.
+Outcomes only, from the independent verifier: what was dropped, downgraded or corrected, what was re-derived from raw sources and held, and what could not be checked. Say whether the check was run by the `verifier` agent or as a separate pass in the same session.
 
 ## Sources
 Company sources: every URL and query used, with dates.

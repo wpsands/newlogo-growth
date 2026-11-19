@@ -22,10 +22,18 @@ Both follow the method in [`method/`](method/):
 - [`plays.md`](method/plays.md): the play format, combining segments, personas, triggers and offers
 - [`evidence.md`](method/evidence.md): the third-party evidence standard and a starter library of verified sources
 - [`outputs.md`](method/outputs.md): report and teardown templates
+- [`crm-reports.md`](method/crm-reports.md): which CRM reports to pull, with fields and filters, if you want to add your own data
 
 ## Agents
 
-The audit runs four research agents, in parallel where the environment allows: `icp-offers-researcher`, `story-sync-researcher`, `motion-measurement-researcher` and `evidence-researcher`. They live in [`agents/`](agents/).
+The audit runs four research agents, in parallel where the environment allows: `icp-offers-researcher`, `story-sync-researcher`, `motion-measurement-researcher` and `evidence-researcher`. A fifth, `verifier`, checks the draft independently before delivery: it works from the raw evidence without the analysis notes and tests the method behind each number. They live in [`agents/`](agents/).
+
+## Scripts
+
+- [`scripts/ai_probe.py`](scripts/ai_probe.py) asks AI assistants buyer questions and records whether the company appears.
+- [`scripts/crm_profile.py`](scripts/crm_profile.py) profiles CRM opportunity exports: what each file holds, whether the files agree, where the closed definition changed, and win rates by team, segment, source and partner inside one consistent window, with counts and intervals.
+
+Both use the Python standard library only.
 
 ## Install
 
@@ -45,7 +53,7 @@ claude --plugin-dir ./newlogo-growth
 
 ## Data
 
-Only a company URL is required. Connect SEO, enrichment, AI-visibility, CRM or analytics tools for better coverage; see [CONNECTORS.md](CONNECTORS.md). Outside-in runs use public information only and never submit forms, start trials or contact the company.
+Only a company URL is required. Connect SEO, enrichment, AI-visibility, CRM or analytics tools for better coverage; see [CONNECTORS.md](CONNECTORS.md). To add CRM data, pull the reports listed in [`method/crm-reports.md`](method/crm-reports.md). Supplied data is used for that run only and never appears in a public output. Outside-in runs use public information only and never submit forms, start trials or contact the company.
 
 ## Author
 

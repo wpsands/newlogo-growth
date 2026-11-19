@@ -13,7 +13,7 @@ Plugin files use `~~category` placeholders for whatever tool you connect in that
 | Enrichment | `~~enrichment` | Firmographics for customers and target accounts | Clay, Apollo, ZoomInfo, Crunchbase |
 | AI visibility | `~~AI visibility` | What AI assistants say about the company for buyer questions | `scripts/ai_probe.py` with an API key for any of Claude, ChatGPT, Perplexity or Gemini (key names in the script header); Ahrefs Brand Radar; Semrush AI toolkit |
 | Research (optional) | `~~research` | Analyst and consultancy research behind plays | Gartner, Forrester or IDC subscriptions; otherwise public summaries via web search |
-| CRM (optional) | `~~CRM` | Win rate by segment, source definitions, stage hygiene | HubSpot, Salesforce, or a CSV export |
+| CRM (optional) | `~~CRM` | Win rate by segment, source definitions, stage hygiene | HubSpot, Salesforce, or CSV exports. The reports to pull are listed in `method/crm-reports.md`; `scripts/crm_profile.py` profiles them |
 | Analytics (optional) | `~~analytics` | Traffic sources, cross-domain journeys, signup to sales routing | GA4, PostHog, Amplitude, or a CSV export |
 
 Only the company URL is required. Everything else improves coverage.
