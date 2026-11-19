@@ -35,6 +35,10 @@ The audit runs four research agents, in parallel where the environment allows: `
 
 Both use the Python standard library only.
 
+## Tests
+
+[`tests/`](tests/) holds script tests for `crm_profile.py` and a test case for the `verifier` agent: a draft audit of a fictional company with planted mistakes and an answer key. All test data is made up. See [`tests/README.md`](tests/README.md).
+
 ## Install
 
 In Claude Code:

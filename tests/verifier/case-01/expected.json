@@ -1,0 +1,79 @@
+{
+  "case": "case-01",
+  "about": "Draft audit of a fictional company with planted mistakes. The verifier passes when it reports every planted mistake against the right finding or play ID, and does not list a correct finding under Must fix.",
+  "planted": [
+    {
+      "key": "blended-window",
+      "id": "L6-1",
+      "mistake": "The stated window is 2026Q2 to 2026Q4, but 32.9% (280 of 850) uses all eight quarters, across the definition break. The window figure is 30.0% (180 of 600).",
+      "any": ["30(\\.0)?\\s?%", "180\\s*(of|/|out of)\\s*600", "eight quarters", "all (eight|8) quarters", "definition break", "outside the (stated |analysis )?window", "cross"]
+    },
+    {
+      "key": "missing-counts",
+      "id": "L1-1",
+      "mistake": "The Health rate is given as 56% with no counts. It is 55.6% (75 of 135).",
+      "any": ["count", "75\\s*(of|/|out of)\\s*135", "denominator", "numerator"]
+    },
+    {
+      "key": "low-n-segment-claim",
+      "id": "L1-2",
+      "mistake": "Retail is 0 of 6 decided deals in the window. A rate from six deals cannot carry an ICP decision, and the finding shows no counts.",
+      "any": ["0\\s*(of|/|out of)\\s*6", "low[- ]n", "six (decided )?deals", "6 (decided )?deals", "minimum", "sample", "too few"]
+    },
+    {
+      "key": "roles-direct-unsupported",
+      "id": "L2-1",
+      "mistake": "No direct deal in the window has two buyer roles, so the pattern is not shown on direct deals. It holds on partner deals only.",
+      "any": ["direct", "no[- ]partner", "without a partner", "non-partner"]
+    },
+    {
+      "key": "missing-label",
+      "id": "L3-1",
+      "mistake": "The finding carries no status label.",
+      "any": ["label", "status"]
+    },
+    {
+      "key": "contradicted-by-capture",
+      "id": "L4-1",
+      "mistake": "The pricing capture shows prices for Starter ($900 a month) and Growth ($2,400 a month). Only Enterprise says Contact sales.",
+      "any": ["\\$?900", "\\$?2,?400", "starter", "growth", "shows prices", "does show", "list(s|ed)? prices", "only (the )?enterprise"]
+    },
+    {
+      "key": "arithmetic",
+      "id": "L5-1",
+      "mistake": "60 of 90 is 66.7%, not 76.7%.",
+      "any": ["66\\.7"]
+    },
+    {
+      "key": "mixed-exports",
+      "id": "L5-2",
+      "mistake": "The by-source report has no opportunity ID and covers all eight quarters, so its 32.9% cannot be compared with the 30.0% window rate. In the window, inbound is 30.0% (90 of 300), the same as outbound.",
+      "any": ["no (opportunity )?id", "without an? (opportunity )?id", "eight quarters", "all (eight|8) quarters", "90\\s*(of|/|out of)\\s*300", "window", "different (period|population|total)", "mix"]
+    },
+    {
+      "key": "play-missing-volume-capacity",
+      "id": "Play 1",
+      "mistake": "Play 1 has no volume line and no capacity line.",
+      "any": ["volume", "capacity"]
+    },
+    {
+      "key": "benchmark-as-lift",
+      "id": "Play 2",
+      "mistake": "The expected lift is taken from a third-party benchmark. A benchmark supports the mechanism and never becomes the company's expected lift.",
+      "any": ["benchmark", "third[- ]party", "study", "expected lift", "double", "promis"]
+    },
+    {
+      "key": "misquoted-citation",
+      "id": "E-1",
+      "mistake": "The capture says 1.6 times, published 2024, an analysis of closed opportunities. The draft says 2.4 times, 2025, survey.",
+      "any": ["1\\.6", "2024", "quote", "misquot"]
+    }
+  ],
+  "controls": [
+    {"id": "L1-3", "note": "Enterprise 40.0% (120 of 300) and SMB 20.0% (60 of 300) are correct."},
+    {"id": "L3-2", "note": "Four of six named customers are hospitals or health systems, as the capture shows."},
+    {"id": "L5-3", "note": "300 of 420 lost deals in the window left from Qualify. 71.4% is correct."},
+    {"id": "L6-2", "note": "210 of 420 losses are no decision; 84 each for price and competitor; 180 of 558 without duplicates is 32.3%. All correct."}
+  ],
+  "pass_rule": "Every planted mistake is reported under Must fix or Should fix with its ID, and no control ID appears under Must fix."
+}
