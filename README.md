@@ -1,31 +1,8 @@
 # New Logo Growth
 
-A Claude Code plugin for new-logo pipeline in B2B SaaS. It audits a company's pipeline system and ranks the few experiments most likely to grow it. It covers companies from seed to enterprise.
+A Claude Code plugin for new-logo pipeline in B2B SaaS. It audits a company's pipeline system from public data, scores ICP, audiences, messaging, offers, motion and measurement, and turns each priority into a play backed by verified third-party research, with experiments ranked by their effect on pipeline.
 
-It works top-down. ICP, audiences, messaging and offers come first; channels are chosen last, as a consequence. Every finding cites its evidence. Every priority becomes a play: a segment, a trigger, two or more personas, and "if this, then that" steps that match the offer to each persona's readiness. Every play cites verified third-party research (analyst, consultancy, academic or public data) for why its mechanism works, and every experiment names the pipeline number it should move, a review date and a kill rule. A/B tests and landing-page tweaks rank low unless a page is blocking a pipeline play.
-
-It is built to run from a company URL alone. Public signals such as job posts, page source, review-site profiles and category records stand in for private data, and anything you supply is labeled as such.
-
-## Skills
-
-| Skill | Ask it | You get |
-|---|---|---|
-| `pipeline-audit` | "Audit outreach.io" or "One-page teardown of outreach.io" | A one-page teardown and a full report: layer scores, cited findings, 3 to 5 priorities, one play per priority with third-party evidence, draft experiments. |
-| `pipeline-experiments` | "What should Acme run next quarter?" | Plays and a ranked backlog of 3 to 5 pipeline experiments, with evidence and a 90-day calendar. |
-
-Both follow the method in [`method/`](method/):
-
-- [`principles.md`](method/principles.md): beliefs, evidence guardrails, voice
-- [`profiles.md`](method/profiles.md): stage × motion profiles
-- [`layers.md`](method/layers.md): the six layers and their checks
-- [`scoring.md`](method/scoring.md): finding and experiment formats, prioritization
-- [`plays.md`](method/plays.md): the play format, combining segments, personas, triggers and offers
-- [`evidence.md`](method/evidence.md): the third-party evidence standard and a starter library of verified sources
-- [`outputs.md`](method/outputs.md): report and teardown templates
-
-## Agents
-
-The audit runs four research agents, in parallel where the environment allows: `icp-offers-researcher`, `story-sync-researcher`, `motion-measurement-researcher` and `evidence-researcher`. They live in [`agents/`](agents/).
+Site: [newlogogrowth.ai](https://newlogogrowth.ai)
 
 ## Install
 
@@ -36,20 +13,18 @@ In Claude Code:
 /plugin install newlogo-growth@newlogo-growth
 ```
 
-Or clone the repo and load it locally:
+## What is in this repository
 
-```bash
-git clone https://github.com/wpsands/newlogo-growth
-claude --plugin-dir ./newlogo-growth
-```
-
-## Data
-
-Only a company URL is required. Connect SEO, enrichment, AI-visibility, CRM or analytics tools for better coverage; see [CONNECTORS.md](CONNECTORS.md). Outside-in runs use public information only and never submit forms, start trials or contact the company.
+| Folder | Contents |
+|---|---|
+| [`plugins/newlogo-growth/`](plugins/newlogo-growth/) | The plugin: skills, agents and the method. Its [README](plugins/newlogo-growth/README.md) describes what it does and how to use it. |
+| [`tools/`](tools/) | Two optional Python scripts, an AI-answer probe and a CRM export profiler. They are not installed with the plugin; see [`tools/README.md`](tools/README.md). |
+| [`tests/`](tests/) | Tests for `crm_profile.py` and a test case for the `verifier` agent, with made-up data. See [`tests/README.md`](tests/README.md). |
+| [`examples/`](examples/) | A sample full audit and one-page teardown of Outreach, from public data. |
 
 ## Author
 
-Built by [Page Sands](https://sandsdx.com), SandsDX. Site: [newlogogrowth.ai](https://newlogogrowth.ai).
+Built by [Page Sands](https://sandsdx.com), SandsDX.
 
 ## License
 

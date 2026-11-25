@@ -15,12 +15,13 @@ Turn findings into 3 to 5 experiments that each test a strategic hypothesis and 
 - `${CLAUDE_PLUGIN_ROOT}/method/plays.md` (play format: segment, personas, trigger, offer, if-then branches)
 - `${CLAUDE_PLUGIN_ROOT}/method/evidence.md` (third-party evidence standard and starter library)
 - `${CLAUDE_PLUGIN_ROOT}/method/layers.md` (for layer context)
+- `${CLAUDE_PLUGIN_ROOT}/method/tools.md` (optional scripts kept outside the plugin, and the fallback for each; read when CRM data is supplied)
 
 ## Inputs
 
 Use whichever exist, in this order of preference:
 1. A pipeline audit from this conversation or a file produced by `pipeline-audit`.
-2. Findings, goals or a CRM or analytics export the user supplies. Run the checks in layers.md ("Reading CRM exports") before using any rate from an export as a baseline.
+2. Findings, goals or a CRM or analytics export the user supplies. Profile the export first (layers.md, "Reading CRM exports", with the optional `crm_profile.py` tool in tools.md if the user has it) before using any rate from an export as a baseline. If the user asks what to pull, give them the list in crm-reports.md.
 3. A company URL alone: run a reduced profile and story-sync check first, or offer to run `pipeline-audit`.
 
 Also ask, if not known: the pipeline goal for the period, the team available to run experiments (roles, not names), and any constraint (budget, no outbound, regulated industry).
@@ -35,7 +36,7 @@ Also ask, if not known: the pipeline goal for the period, the team available to 
 6. **Write each survivor** in the experiment format from scoring.md. The hypothesis must name the audience, the message or offer, the motion, the pipeline metric, the window and the evidence.
 7. **Rank and sequence.** Order by dependency, then impact over effort. Keep 3 to 5. Place the rest in a parking lot.
 8. **Build the calendar.** A simple week-by-week view: start, leading-indicator check (week 2 to 3), review date, decision.
-9. **Verify.** Check every hypothesis cites a finding, every play has two personas and a silent branch, every third-party citation was opened in this run or is a current library entry, every expected lift has low/mid/high reasoning from the company's own baseline, every experiment has a kill rule, and no number is invented.
+9. **Verify.** Run the `verifier` agent on the draft, or do its checks in a separate pass. Check every play has baseline, volume and capacity lines and a shape chosen from the findings, every hypothesis cites a finding, every play has two personas and a silent branch, every third-party citation was opened in this run or is a current library entry, every expected lift has low/mid/high reasoning from the company's own baseline, every experiment has a kill rule, and no number is invented.
 
 ## Output
 

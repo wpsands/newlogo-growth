@@ -10,15 +10,46 @@ Every finding uses this structure:
 | **Layer** | ICP, Audiences, Messaging, Offers, Motion, Measurement |
 | **Finding** | One sentence: what is true, for which audience, on which surface |
 | **Evidence** | URL, query, screenshot reference or data source, with date observed |
-| **Status** | `observed`, `inferred`, or `needs data` |
+| **Status** | One or more of the five labels below |
 | **Severity** | P1 (blocks pipeline now), P2 (limits pipeline), P3 (polish) |
 | **Pipeline effect** | Which pipeline number it affects: accounts reached, first meetings, opportunities, win rate, cycle length, deal size |
+| **Size** | How much of the pipeline the finding touches, with counts: the number of accounts, deals or dollars affected, or the share of a stated total. From supplied data when present; from a public count when one exists (pages, listings, job posts, accounts in a public record); otherwise "not sized" and the data that would size it |
 | **Root cause** | The upstream cause, if this finding is a symptom |
+
+## Status labels
+
+Use these five and no others. A finding can carry two (for example `observed, directional`).
+
+| Label | Meaning |
+|---|---|
+| `observed` | Seen directly in a public source or raw capture this run |
+| `inferred` | Reasoned from observed evidence; the reasoning is stated |
+| `supplied` | Rests on data the user supplied; carries the analysis window and team scope; never appears in a public output |
+| `directional` | Rests on a weak instrument: a substitute tool, one provider, a search snippet, a sample below the minimum, or a rate whose interval overlaps the comparison |
+| `needs data` | Cannot be confirmed with the data available; listed under "What we could not see" with the data that would resolve it |
+
+## Rates and counts
+
+- **Counts beside every rate.** Write "34.8% (173 of 497)", never the percentage alone.
+- **Minimum sample.** A rate from fewer than 30 decided deals (or 30 of whatever the denominator is) is `directional` and cannot be the basis of a segment choice, a priority or a P1 or P2 finding on its own. The optional `crm_profile.py` tool marks these `low n`.
+- **Differences need room.** Before saying one segment beats another, check that the gap is larger than the uncertainty in both rates. The profiling script prints a 95% interval for each rate. If the intervals overlap heavily, say the difference is not established.
+- **One window, stated.** Every rate from supplied data names its window and team scope (layers.md, "Reading CRM exports").
+- **Correlation is labeled.** A difference between groups in historical data is a correlation unless the groups were assigned. Say so where the number appears.
 
 ## Prioritization
 
 1. Group findings by root cause. One root cause often explains several findings.
-2. Score each root cause on **impact** (expected pipeline effect, 1 to 5) and **effort** (S, M, L, considering people, budget and dependencies).
+2. Score each root cause on **impact** (1 to 5, anchors below) and **effort** (S, M, L, considering people, budget and dependencies). State the size behind the impact score in one clause.
+
+   | Impact | Test |
+   |---|---|
+   | 5 | Touches most of the pipeline in scope (roughly half or more of accounts, deals or value), or blocks every play, and the evidence is `observed` or `supplied` with adequate counts |
+   | 4 | Touches a large, named part of the pipeline (roughly a fifth to a half), with evidence of the same quality |
+   | 3 | Touches a clear but smaller part, or a large part on `inferred` evidence |
+   | 2 | Touches a small part, or the evidence is `directional` |
+   | 1 | Polish; no pipeline number would visibly move |
+
+   A root cause that rests only on `directional` or `inferred` evidence scores no higher than 3. If nothing can be sized, say "not sized" and score on the evidence quality alone.
 3. Sequence by dependency before sorting by score. ICP before audience work, messaging before new channels, clean definitions before attribution claims.
 4. Keep the top 3 to 5. Everything else goes in a parking lot with one line each.
 5. Turn the top three priorities into full plays (plays.md): segment, personas, trigger, offer and "if this, then that" branches, backed by third-party evidence for the mechanism (evidence.md). Give priorities four and five one line each: segment, first offer, metric, and the evidence ID if one applies.
@@ -57,5 +88,6 @@ Each experiment tests a strategic hypothesis and has a pipeline outcome.
 
 Most B2B pipeline experiments run on small numbers. Do not claim statistical significance on counts of opportunities in the tens. Instead:
 - State the baseline and the counts.
+- Before the test starts, work out the outcomes expected on the low case in each group (plays.md, Volume). If that is under about 10 per group, the comparison cannot be read; change the design or call it a pilot.
 - Compare against a holdout group of matched accounts where possible.
 - Call results `directional` unless the volume supports a test.

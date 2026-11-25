@@ -61,7 +61,7 @@ Company-owned (5):
 5. Paid search ads and their landing pages (`~~SEO tool` paid research, or the Google Ads Transparency Center)
 
 Third-party (5):
-6. AI and search answers to five buyer questions in the category (`~~AI visibility`, or `scripts/ai_probe.py` with API keys for Claude, ChatGPT, Perplexity or Gemini). Run each prompt 3+ times; report consensus only. Search-engine results alone are `directional`.
+6. AI and search answers to five buyer questions in the category (the optional `ai_probe.py` tool or `~~AI visibility`; see tools.md). Run each prompt 3+ times; report consensus only. Search-engine results alone are `directional`.
 7. Review sites: G2, Gartner Peer Insights or TrustRadius, whichever the category uses; category placement and recent review language
 8. Comparison and "alternatives" pages that rank for the company's name or category, including competitors' own comparison pages
 9. Wikipedia and Crunchbase
@@ -200,13 +200,21 @@ Most users run this plugin with a company URL and nothing else. Before marking a
 
 A public signal is `observed` for what it shows and `inferred` for what it implies about the account. Never present it as the company's internal data.
 
+**What changed in the last 12 months.** A single snapshot cannot show direction. Where a web archive is reachable, compare the current homepage, main product page and pricing page with versions from about 6 and 12 months ago: positioning line, named segments, calls to action, pricing. Add dated press releases, leadership changes and the change in open go-to-market roles. Report what moved and when; a recent change explains lag on third-party surfaces and tells the reader which findings the company may already be working on.
+
+**When enrichment is unavailable.** Profile 10 to 20 named customers from public pages instead: each customer's own site and about page for industry and region, careers pages or public filings for a size band, and case-study text for the role that bought. Record the source for each field, label the result `inferred`, and state how many customers could be profiled.
+
 ## Supplied data
 
 CRM, analytics or ad exports, sales decks and earlier audits are optional. Use them only when the user provides them in this run. Label every finding that depends on them `supplied`, keep their numbers out of any public output, and make sure the report still stands on public evidence if they are removed.
 
 ### Reading CRM exports
 
-Run these checks before computing any rate from a CRM export, and record the result of each in the run's notes. A rate that skips them is not ready for a finding.
+Which reports to ask for, with fields and filters, is in crm-reports.md. Hand that list to the user when they offer CRM data.
+
+Profile the exports first, with the optional `crm_profile.py` tool if the user has it, or by working through the checks below yourself (tools.md). The profile gives the inventory, the reconciliation between files, outcomes by quarter, the definition break and analysis window, the standard cuts with counts and intervals, the loss mix, buyer-role and stage tables, and open pipeline. Use its tables as the source for `supplied` findings, add further cuts only inside its window, and keep its output with the run's notes. Pass `--exclude-team` for teams outside the audit's scope and `--window-start` if sales operations gives a better date for a change in practice.
+
+The tool covers the checks below. Read them anyway: they say what each table is for and what to do when a check fails. A rate that skips them is not ready for a finding.
 
 1. **Check the exports against each other.** Count records, join on the opportunity ID, and compare totals (won count, won value) across exports. Exports usually carry different filters. Never combine figures from two exports in one comparison unless their totals reconcile, or state the difference next to the comparison.
 2. **Read each report's filters before calling a field or record set a problem.** Before saying records should leave a denominator, check whether the report already excludes them. Before saying two fields disagree, test whether a third field explains the difference (for example, a source bucket that changes when a BDR-transfer flag is set). Report only the residue the rule does not explain.
@@ -216,6 +224,9 @@ Run these checks before computing any rate from a CRM export, and record the res
 6. **Look at the trend before the rates.** Report won count and won value by quarter. A large change in volume needs an explanation (headcount, scope or territory change, or real lift) before any play claims a lift.
 7. **Read the loss mix inside the window.** Separate disqualifications and duplicates from real losses, and report the share of no-decision losses (unresponsive, delayed, deprioritized) next to pricing, feature and competitor losses.
 8. **Check stage claims against the window too.** Clean-ups and mass cancellations distort exit-stage counts. Compute which stage deals leave from using real losses inside the window, not all closes.
+9. **Show counts and respect the minimum.** Every rate carries its counts. A cut marked `low n`, or whose interval overlaps the window rate, is `directional` and does not carry a segment choice (scoring.md, "Rates and counts").
+10. **Size the findings.** For each `supplied` finding, state the number of deals and the value it touches inside the window.
+11. **Check what already runs.** Read campaign names, lead sources and partner fields for programs already aimed at the segment a play would target.
 
 ## Layer scores
 
@@ -228,8 +239,10 @@ Score each layer against the anchors below. The score must follow from the findi
 | 2 | Sound with specific gaps. | No P1 finding in the layer; one or more P2 findings. |
 | 3 | Strong. Use as a base for plays. | Only P3 findings or none, and at least one observed strength cited. |
 
-Two cases come up often:
-- **ICP too broad to list.** A stated ICP that no one could build an account list from ("revenue teams", "companies big and small") counts as contradicted, and the finding is P1.
-- **Offers with a missing middle.** Plenty of content and tools at the top, then only "book a demo", counts as contradicted, and the finding is P1.
+Two cases come up often. Neither is P1 by default; each has to be earned from this company's evidence.
+- **ICP too broad to list.** A stated ICP that no one could build an account list from ("revenue teams", "companies big and small"). It is P1 only when there is also evidence that the breadth costs pipeline: customers or wins that cluster in a narrower set than the stated ICP, outbound or ads aimed at the broad set, or segment win rates that differ. A broad homepage line with a tight segment visible in case studies, job posts and campaigns is P2 or P3.
+- **Offers with a missing middle.** Plenty of content at the top, then only "book a demo". It is P1 only when the search for a middle offer was thorough (site, resource library, ads, partner pages, product tours, calculators, community) and came up empty, and the motion needs one (layer 4 table). A self-serve trial, tour or diagnostic that exists but is hard to find is a different finding.
+
+When both of these are the top findings, check the other four layers again before naming them the constraint, and say in the summary what evidence would have pointed elsewhere.
 
 A layer with no P1 finding cannot score below 2. If every layer scores 1, re-check the severity of each P1 before delivering. Each score cites the findings that justify it.

@@ -17,8 +17,12 @@ These rules govern every audit and every experiment this plugin produces. When a
 
 - **Cite every claim.** Each finding carries the URL, screenshot reference, query, or data source it rests on, plus the date observed. No citation, no claim.
 - **No invented numbers.** Never invent a metric, benchmark or conversion rate. A benchmark requires a named source. When a number is unknown, say "unknown" and name the data that would answer it.
-- **Separate observed from inferred.** Label each finding `observed` (seen directly), `inferred` (reasoned from evidence) or `needs data` (cannot be confirmed outside-in).
-- **Second pass.** Before delivering, re-check every finding against its evidence in a separate pass. Drop or downgrade anything that does not survive. An insight that does not hold up when checked twice is noise.
+- **Separate observed from inferred.** Label each finding with the five status labels in scoring.md: `observed`, `inferred`, `supplied`, `directional`, `needs data`.
+- **Counts beside every rate, and a minimum sample.** A percentage never appears without its counts. A rate from fewer than 30 cases is `directional` and cannot carry a segment choice or a priority on its own.
+- **Size what you find.** Each finding and priority says how much of the pipeline it touches, with counts, or says "not sized" and what would size it.
+- **Earn the diagnosis.** The constraint must come from this company's evidence. A common pattern (an ICP too broad to list, a missing middle offer) is a hypothesis to test, not a default conclusion. Say what evidence would have pointed to a different constraint and why it did not.
+- **Look for what changed.** A snapshot hides direction. Check the trend in supplied data, and outside-in check what changed in the last 12 months (archived versions of the homepage and pricing page, press dates, hiring changes).
+- **Independent second pass.** Before delivering, the draft is checked by the `verifier` agent, which works from the raw evidence without the analysis notes and tests method as well as arithmetic. Without subagents, do the check in a separate pass and write new checks instead of rereading the old ones. Drop or downgrade anything that does not survive. An insight that does not hold up when checked twice is noise.
 - **Confirm tool metadata against the raw source.** Scrapers can report tags, redirects or text that the live page does not serve. Before using a finding that rests on page metadata (robots tags, canonical, structured data, form fields), fetch the raw page or headers and confirm it.
 - **Repeat stochastic probes.** AI-answer checks vary between runs. Run each prompt at least three times and report only what appears in the consensus.
 - **Public data first.** Assume the user has only a company URL. The audit must stand on public evidence. Supplied data (CRM, analytics, earlier audits) sharpens findings when the user provides it and is labeled `supplied`.

@@ -246,7 +246,7 @@ Story sync: 4 of 10. Owned 4 of 5. Third-party 0 of 5. No surface scored `needs 
 
 ## Sources
 
-AI answer probe: scripts/ai_probe.py, Claude Sonnet 5.5, GPT-5.6 Terra, Gemini 3.8 Flash and Perplexity Sonar through OpenRouter with native web search, 2026-11-17.
+AI answer probe: tools/ai_probe.py, Claude Sonnet 5.5, GPT-5.6 Terra, Gemini 3.8 Flash and Perplexity Sonar through OpenRouter with native web search, 2026-11-17.
 
 Company sources (observed 2026-11-15 unless noted):
 - https://www.outreach.ai (home), /pricing, /enterprise, /request-demo, /demo-confirmed, /platform, /ai-agents, /platform/trust, /company/about, /company/contact, /company/newsroom, /resources/stories, /resources/tools and its calculators and quizzes, /resources/reports-guides/ai-consolidation-playbook, /resources/webinars-videos, /partners, /salesloft-vs-outreach, /speak-with-maia

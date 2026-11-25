@@ -23,7 +23,7 @@ Do not use: undated statistics, figures with no reachable source, listicles that
 - **When nothing credible exists, say so.** Write "no third-party evidence found" and keep the play if the company's own evidence supports it.
 - **No competitor's research about its own category.** Do not cite research published by a direct competitor of the company being audited, even with a vendor label. For example, do not cite Gong data in an audit of Outreach.
 - **Recency.** Prefer research from the last three years. Older entries are flagged in their notes; use them only when no newer source covers the mechanism. The verify pass re-opens every citation regardless of age.
-- **Date everything.** Each citation carries the publication year and the date it was checked. Prefer research from the last three years; older canonical studies are allowed with the year shown.
+- **Date everything.** Each citation carries the publication year and the date it was checked.
 
 ## Citation format
 
