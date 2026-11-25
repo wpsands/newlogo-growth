@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.dirname(HERE))
 import fixtures  # noqa: E402
 
 BRIEF = """You are the `verifier` agent of the newlogo-growth plugin. Your instructions are in
-{root}/agents/verifier.md. Read that file and follow it exactly. Where it says
-${{CLAUDE_PLUGIN_ROOT}}, use {root}.
+{plugin}/agents/verifier.md. Read that file and follow it exactly. Where it says
+${{CLAUDE_PLUGIN_ROOT}}, use {plugin}. The optional tools are in {root}/tools.
 
 Check this draft:
 - Draft: {out}/draft.md
@@ -52,7 +52,7 @@ def main():
         shutil.rmtree(cap)
     shutil.copytree(os.path.join(case, "captures"), cap)
     fixtures.make(os.path.join(out, "data"))
-    brief = BRIEF.format(root=ROOT, out=out)
+    brief = BRIEF.format(root=ROOT, plugin=os.path.join(ROOT, "plugins", "newlogo-growth"), out=out)
     with open(os.path.join(out, "brief.txt"), "w", encoding="utf-8") as fh:
         fh.write(brief + "\n")
     print(brief)

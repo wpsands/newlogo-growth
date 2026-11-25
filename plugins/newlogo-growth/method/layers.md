@@ -61,7 +61,7 @@ Company-owned (5):
 5. Paid search ads and their landing pages (`~~SEO tool` paid research, or the Google Ads Transparency Center)
 
 Third-party (5):
-6. AI and search answers to five buyer questions in the category (`~~AI visibility`, or `scripts/ai_probe.py` with API keys for Claude, ChatGPT, Perplexity or Gemini). Run each prompt 3+ times; report consensus only. Search-engine results alone are `directional`.
+6. AI and search answers to five buyer questions in the category (the optional `ai_probe.py` tool or `~~AI visibility`; see tools.md). Run each prompt 3+ times; report consensus only. Search-engine results alone are `directional`.
 7. Review sites: G2, Gartner Peer Insights or TrustRadius, whichever the category uses; category placement and recent review language
 8. Comparison and "alternatives" pages that rank for the company's name or category, including competitors' own comparison pages
 9. Wikipedia and Crunchbase
@@ -212,9 +212,9 @@ CRM, analytics or ad exports, sales decks and earlier audits are optional. Use t
 
 Which reports to ask for, with fields and filters, is in crm-reports.md. Hand that list to the user when they offer CRM data.
 
-Run `scripts/crm_profile.py` on the exports first. It produces the inventory, the reconciliation between files, outcomes by quarter, the definition break and analysis window, the standard cuts with counts and intervals, the loss mix, buyer-role and stage tables, and open pipeline. Use its tables as the source for `supplied` findings, add further cuts only inside its window, and keep its output with the run's notes. Pass `--exclude-team` for teams outside the audit's scope and `--window-start` if sales operations gives a better date for a change in practice.
+Profile the exports first, with the optional `crm_profile.py` tool if the user has it, or by working through the checks below yourself (tools.md). The profile gives the inventory, the reconciliation between files, outcomes by quarter, the definition break and analysis window, the standard cuts with counts and intervals, the loss mix, buyer-role and stage tables, and open pipeline. Use its tables as the source for `supplied` findings, add further cuts only inside its window, and keep its output with the run's notes. Pass `--exclude-team` for teams outside the audit's scope and `--window-start` if sales operations gives a better date for a change in practice.
 
-The script covers the checks below. Read them anyway: they say what each table is for and what to do when a check fails. A rate that skips them is not ready for a finding.
+The tool covers the checks below. Read them anyway: they say what each table is for and what to do when a check fails. A rate that skips them is not ready for a finding.
 
 1. **Check the exports against each other.** Count records, join on the opportunity ID, and compare totals (won count, won value) across exports. Exports usually carry different filters. Never combine figures from two exports in one comparison unless their totals reconcile, or state the difference next to the comparison.
 2. **Read each report's filters before calling a field or record set a problem.** Before saying records should leave a denominator, check whether the report already excludes them. Before saying two fields disagree, test whether a third field explains the difference (for example, a source bucket that changes when a BDR-transfer flag is set). Report only the residue the rule does not explain.

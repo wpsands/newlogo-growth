@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "newlogo-growth",
-      "source": "./",
+      "source": "./plugins/newlogo-growth",
       "description": "Pipeline audit for B2B SaaS from public data: scores ICP, audiences, messaging, offers, motion and measurement, then turns each priority into a multi-step play backed by verified third-party research."
     }
   ]

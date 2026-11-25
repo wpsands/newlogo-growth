@@ -4,7 +4,7 @@ Two kinds of test. Both use made-up data only. No client data belongs in this re
 
 ## 1. Script tests
 
-These check `scripts/crm_profile.py` against exports whose right answers are known by construction. They run in under a second and need only Python 3.
+These check `tools/crm_profile.py` against exports whose right answers are known by construction. They run in under a second and need only Python 3.
 
 ```bash
 python3 tests/test_crm_profile.py
@@ -22,7 +22,7 @@ Run both before every release.
 
 This checks the `verifier` agent. `tests/verifier/case-01/draft.md` is an audit of a fictional company with eleven planted mistakes and four correct findings. The verifier passes when it reports every planted mistake against the right finding or play ID and does not list a correct finding under Must fix. The answer key is `tests/verifier/case-01/expected.json`.
 
-The test uses a model, so it costs a run and can vary from run to run. Run it when `agents/verifier.md` or anything in `method/` changes.
+The test uses a model, so it costs a run and can vary from run to run. Run it when `plugins/newlogo-growth/agents/verifier.md` or anything in `plugins/newlogo-growth/method/` changes.
 
 1. Lay the case out in a scratch folder outside the repository, so the verifier cannot see the answer key. This also prints the brief.
 

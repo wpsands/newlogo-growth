@@ -71,7 +71,7 @@ The exports cannot answer these, and the audit needs them to read the data corre
 
 ## What happens with the files
 
-Run `scripts/crm_profile.py` on the exports first (layers.md, "Reading CRM exports"). It reports what each file contains, whether the files agree, where the closed definition changed, and the standard cuts inside one consistent window. Supplied data is used for this run only, is labeled `supplied` in the report, and never goes into a public output or the plugin directory.
+Profile the exports first (layers.md, "Reading CRM exports"; the optional `crm_profile.py` tool in tools.md does this in one step). The profile reports what each file contains, whether the files agree, where the closed definition changed, and the standard cuts inside one consistent window. Supplied data is used for this run only, is labeled `supplied` in the report, and never goes into a public output or the plugin directory.
 
 ## If the user can pull only one report
 

@@ -32,8 +32,8 @@ You receive a company, its URL, the motion in scope and a notes file path.
 
 - Observe only. Every observation carries a URL or query and the date. Label `observed` or `inferred`. Never invent numbers.
 - AI and search answers vary. Run each buyer question at least three times and report only the consensus.
-- For surface 6, query the assistants directly first. Write the five questions to a file, one per line, and run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/ai_probe.py --brand "{company}" --aliases "{domains,other names}" --competitors "{3 to 5 competitors}" --questions-file {path} --runs 3 --out {notes dir}/ai-probe.json`. It asks Claude, ChatGPT, Perplexity and Gemini with web search on, using whichever API keys are set, and reports per provider whether the company is named in a majority of runs, its rank among named vendors, the sentence that describes it and the sources cited. Report which providers ran, by which route (direct key or OpenRouter), and which were skipped. Use only the keys the user chose for this run; unset any other provider keys present in the environment so the probe does not bill an account the user did not intend. Run one question once first as a smoke test before the full set.
-- If no provider key is set, fall back to search-engine results and label those findings `directional`.
+- For surface 6, query the assistants directly first. Follow `${CLAUDE_PLUGIN_ROOT}/method/tools.md`: use the optional `ai_probe.py` tool if the user has it, otherwise a connected `~~AI visibility` tool. Report which assistants were queried, by which route, and which were skipped.
+- If neither is available, fall back to search-engine results and label those findings `directional`.
 - Never answer a buyer question from your own training knowledge as a stand-in for an assistant. If no assistant or search tool can be queried, score surface 6 `needs data`.
 - Read the homepage title tag and meta description from raw HTML.
 

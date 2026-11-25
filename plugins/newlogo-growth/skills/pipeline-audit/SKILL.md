@@ -21,6 +21,7 @@ Read these before starting and follow them throughout:
 - `${CLAUDE_PLUGIN_ROOT}/method/evidence.md` (third-party evidence standard and starter library)
 - `${CLAUDE_PLUGIN_ROOT}/method/outputs.md` (teardown and full report templates)
 - `${CLAUDE_PLUGIN_ROOT}/method/crm-reports.md` (which CRM reports to ask for; read only when the user offers or asks about CRM data)
+- `${CLAUDE_PLUGIN_ROOT}/method/tools.md` (optional scripts kept outside the plugin, and the fallback for each)
 
 ## Inputs
 
@@ -51,7 +52,7 @@ Run the three researchers in parallel when the environment supports subagents, e
 Without subagents, work the same checks in layer order. Either way, record raw observations with source and date before interpreting them, and look for a public signal (layers.md) before marking anything `needs data`.
 
 ### 3. Write findings
-Convert observations into findings using the format in scoring.md. Label each `observed`, `inferred`, `needs data` or `supplied`. Identify root causes. Give every finding a size with counts, or "not sized" (scoring.md). Put counts beside every rate and treat rates under the minimum sample as `directional`. If CRM exports are supplied, run `${CLAUDE_PLUGIN_ROOT}/scripts/crm_profile.py` on them and work through the checks in layers.md ("Reading CRM exports") before computing any rate; state the analysis window and team scope on every `supplied` finding. Record what changed in the last 12 months (layers.md).
+Convert observations into findings using the format in scoring.md. Label each `observed`, `inferred`, `needs data` or `supplied`. Identify root causes. Give every finding a size with counts, or "not sized" (scoring.md). Put counts beside every rate and treat rates under the minimum sample as `directional`. If CRM exports are supplied, profile them first (the optional `crm_profile.py` tool in tools.md if the user has it) and work through the checks in layers.md ("Reading CRM exports") before computing any rate; state the analysis window and team scope on every `supplied` finding. Record what changed in the last 12 months (layers.md).
 
 ### 4. Score layers
 Score each layer with the anchors in layers.md, citing finding IDs. Score each layer on its own findings. Upstream gating sets the order of priorities, not the scores.

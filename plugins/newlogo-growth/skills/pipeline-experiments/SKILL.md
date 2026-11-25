@@ -15,12 +15,13 @@ Turn findings into 3 to 5 experiments that each test a strategic hypothesis and 
 - `${CLAUDE_PLUGIN_ROOT}/method/plays.md` (play format: segment, personas, trigger, offer, if-then branches)
 - `${CLAUDE_PLUGIN_ROOT}/method/evidence.md` (third-party evidence standard and starter library)
 - `${CLAUDE_PLUGIN_ROOT}/method/layers.md` (for layer context)
+- `${CLAUDE_PLUGIN_ROOT}/method/tools.md` (optional scripts kept outside the plugin, and the fallback for each; read when CRM data is supplied)
 
 ## Inputs
 
 Use whichever exist, in this order of preference:
 1. A pipeline audit from this conversation or a file produced by `pipeline-audit`.
-2. Findings, goals or a CRM or analytics export the user supplies. Run `scripts/crm_profile.py` and the checks in layers.md ("Reading CRM exports") before using any rate from an export as a baseline. If the user asks what to pull, give them the list in crm-reports.md.
+2. Findings, goals or a CRM or analytics export the user supplies. Profile the export first (layers.md, "Reading CRM exports", with the optional `crm_profile.py` tool in tools.md if the user has it) before using any rate from an export as a baseline. If the user asks what to pull, give them the list in crm-reports.md.
 3. A company URL alone: run a reduced profile and story-sync check first, or offer to run `pipeline-audit`.
 
 Also ask, if not known: the pipeline goal for the period, the team available to run experiments (roles, not names), and any constraint (budget, no outbound, regulated industry).

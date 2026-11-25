@@ -41,7 +41,7 @@ You receive the draft, the folder of raw captures (page source, form definitions
 
 1. **Sources.** For each P1 and P2 finding with a public source, open the source or the raw capture and confirm the finding says what the source shows. Confirm metadata findings (title tags, form fields, tag IDs) against raw files, not a scraper's summary.
 2. **Third-party citations.** Open each one. Confirm the quote, the year and the type label. Flag any that could not be opened.
-3. **Supplied data, method first.** If CRM exports were supplied, run `${CLAUDE_PLUGIN_ROOT}/scripts/crm_profile.py` on them yourself, then test the draft against its output:
+3. **Supplied data, method first.** If CRM exports were supplied, profile them yourself first, with the optional `crm_profile.py` tool if the user has it or by working through layers.md, "Reading CRM exports" (`${CLAUDE_PLUGIN_ROOT}/method/tools.md`). Then test the draft against the profile:
    - Does every rate use one stated window that does not cross a definition break?
    - Is the team scope stated, and do the ICP and play findings cover only teams in scope?
    - Does any comparison mix files whose totals differ, or use a file with no opportunity ID as if it joined?

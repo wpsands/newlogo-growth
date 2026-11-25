@@ -31,7 +31,7 @@ Use these five and no others. A finding can carry two (for example `observed, di
 ## Rates and counts
 
 - **Counts beside every rate.** Write "34.8% (173 of 497)", never the percentage alone.
-- **Minimum sample.** A rate from fewer than 30 decided deals (or 30 of whatever the denominator is) is `directional` and cannot be the basis of a segment choice, a priority or a P1 or P2 finding on its own. `scripts/crm_profile.py` marks these `low n`.
+- **Minimum sample.** A rate from fewer than 30 decided deals (or 30 of whatever the denominator is) is `directional` and cannot be the basis of a segment choice, a priority or a P1 or P2 finding on its own. The optional `crm_profile.py` tool marks these `low n`.
 - **Differences need room.** Before saying one segment beats another, check that the gap is larger than the uncertainty in both rates. The profiling script prints a 95% interval for each rate. If the intervals overlap heavily, say the difference is not established.
 - **One window, stated.** Every rate from supplied data names its window and team scope (layers.md, "Reading CRM exports").
 - **Correlation is labeled.** A difference between groups in historical data is a correlation unless the groups were assigned. Say so where the number appears.

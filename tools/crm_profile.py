@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Profile CRM opportunity exports before any rate is used in a finding.
 
-Part of the newlogo-growth plugin (layers.md, "Reading CRM exports"; the reports
+Optional tool for the newlogo-growth plugin (layers.md, "Reading CRM exports"; the reports
 are described in method/crm-reports.md). Standard library only. Reads CSV files,
 prints a markdown report and can write the same tables as JSON.
 

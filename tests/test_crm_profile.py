@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for scripts/crm_profile.py on made-up exports with known answers.
+"""Tests for tools/crm_profile.py on made-up exports with known answers.
 
 Standard library only. Run from the repository root:
   python3 tests/test_crm_profile.py
@@ -15,9 +15,9 @@ from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-SCRIPT = os.path.join(ROOT, "scripts", "crm_profile.py")
+SCRIPT = os.path.join(ROOT, "tools", "crm_profile.py")
 sys.path.insert(0, HERE)
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import fixtures  # noqa: E402
 import crm_profile  # noqa: E402

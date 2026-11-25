@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Ask AI assistants buyer questions and record whether a company appears.
 
-Part of the newlogo-growth plugin (story sync surface 6). Standard library only.
+Optional tool for the newlogo-growth plugin (story sync surface 6; see
+plugins/newlogo-growth/method/tools.md). Kept outside the plugin folder. Standard library only.
 
 Each question is asked RUNS times per provider, with the provider's web search
 turned on so answers reflect what a buyer sees today. For every answer the script
