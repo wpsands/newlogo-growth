@@ -46,6 +46,10 @@ Only a company URL is required. Connect SEO, enrichment, AI-visibility, CRM or a
 
 The plugin contains no scripts. Two optional Python scripts, an AI-answer probe and a CRM export profiler, are in the `tools/` folder of the [repository](https://github.com/wpsands/newlogo-growth). The plugin asks before using them and works without them; [`method/tools.md`](method/tools.md) gives the fallback for each.
 
+## Privacy
+
+The plugin collects nothing and runs no servers. Research goes through your own Claude account and the tools you connect, and notes stay in your working folder. See the [privacy page](https://newlogogrowth.ai/privacy/).
+
 ## Author
 
 Built by [Page Sands](https://sandsdx.com), SandsDX. Site: [newlogogrowth.ai](https://newlogogrowth.ai).
